@@ -155,7 +155,7 @@ public class ContaController {
 				contaService.save(conta.get());
 				return ResponseEntity.ok("Conta Bloqueada");
 			} else {
-				return ResponseEntity.badRequest().body("Register not found for id ".concat(id.toString()));
+				return ResponseEntity.badRequest().body("Conta não encontrada com o id ".concat(id.toString()));
 			}
 		} catch (Exception e) {
 			return ResponseEntity.badRequest().body(e.getMessage());
