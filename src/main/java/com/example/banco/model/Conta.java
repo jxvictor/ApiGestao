@@ -1,7 +1,6 @@
 package com.example.banco.model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -62,5 +61,4 @@ public class Conta implements Serializable {
 	@Column(name = "dataCriacao", nullable = false)
 	@JsonFormat(pattern="dd/MM/yyyy")
 	private Date dataCriacao;
-	
 }

@@ -147,13 +147,18 @@ public class ContaController {
 	})
 	@PutMapping("/bloquear/{id}")
 	public ResponseEntity<String> bloquear(@PathVariable Long id) {
-		try
-		{
-			this.contaService.bloquear(id);
-			return new ResponseEntity<String>("Conta bloqueada!", HttpStatus.OK);
-		}
-		catch (Exception e) {
-			return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
+		try {
+			Optional<Conta> conta = contaService.findById(id);
+
+			if (conta.isPresent()) {
+				conta.get().setFlagAtivo(false);
+				contaService.save(conta.get());
+				return ResponseEntity.ok("Conta Bloqueada");
+			} else {
+				return ResponseEntity.badRequest().body("Register not found for id ".concat(id.toString()));
+			}
+		} catch (Exception e) {
+			return ResponseEntity.badRequest().body(e.getMessage());
 		}
 	}
 	

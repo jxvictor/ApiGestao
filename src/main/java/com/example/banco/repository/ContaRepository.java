@@ -1,5 +1,6 @@
 package com.example.banco.repository;
 
+
 //import java.math.BigDecimal;
 
 import javax.transaction.Transactional;
@@ -34,5 +35,5 @@ public interface ContaRepository extends JpaRepository<Conta, Long>{
 	
 	@Query("SELECT saldo FROM Conta WHERE id = ?1") 
     Conta findSaldoById(long id);	
-	
+
 }
