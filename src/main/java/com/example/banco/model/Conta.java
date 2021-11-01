@@ -59,7 +59,7 @@ public class Conta implements Serializable {
 	private double limiteSaqueDiario;
 	
 	@Column(nullable = false)
-	@ApiModelProperty(value = "Digite se se o Flag está ativo(true) ou desativada(false)")
+	@ApiModelProperty(value = "Digite se o Flag está ativo(true) ou desativada(false)")
 	private boolean flagAtivo;
 	
 	@Column(nullable = false)
