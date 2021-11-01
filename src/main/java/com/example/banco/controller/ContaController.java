@@ -71,6 +71,16 @@ public class ContaController {
 			@ApiResponse(code = 404, message = "Endpoint não encontrado"),
 			@ApiResponse(code = 500, message = "Erro no servidor")
 	})
+	/*
+	 * {
+    "id": 1,
+    "pessoa":{"id":1},
+    "saldo": 25.00,
+    "limiteSaqueDiario": 20.00,
+    "flagAtivo": true,
+    "tipoConta": 13
+}
+	 * */
 	@PostMapping()
 	public ResponseEntity<String> cadastrar(@RequestBody @Valid Conta conta)
 	{
@@ -135,11 +145,11 @@ public class ContaController {
 			@ApiResponse(code = 404, message = "Endpoint não encontrado"),
 			@ApiResponse(code = 500, message = "Erro no servidor")
 	})
-	@PutMapping("/bloquear/{id}/{flagAtivo}")
-	public ResponseEntity<String> bloquear(@PathVariable Long id, @PathVariable Boolean flagAtivo) {
+	@PutMapping("/bloquear/{id}")
+	public ResponseEntity<String> bloquear(@PathVariable Long id) {
 		try
 		{
-			this.contaService.bloquear(id, flagAtivo);
+			this.contaService.bloquear(id);
 			return new ResponseEntity<String>("Conta bloqueada!", HttpStatus.OK);
 		}
 		catch (Exception e) {

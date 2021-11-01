@@ -56,6 +56,13 @@ public class PessoaController {
 			@ApiResponse(code = 404, message = "Endpoint não encontrado"),
 			@ApiResponse(code = 500, message = "Erro no servidor")
 	})
+	/*
+	 * {
+    "id": 1,
+    "nome": "Genisvaldo",
+    "cpf": 22222222222,
+    "dataNascimento": "13/11/2000"
+}*/
 	@PostMapping()
 	public ResponseEntity<String> cadastrar(@RequestBody @Valid Pessoa pessoa)
 	{

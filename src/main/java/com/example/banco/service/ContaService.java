@@ -40,8 +40,8 @@ public class ContaService {
 		contaRepository.setSaldoNew(quantidade, id);
 	}
 	
-	public void bloquear(Long id, Boolean flagAtivo) {
-		contaRepository.blockById(id, flagAtivo);
+	public void bloquear(Long id) {
+		contaRepository.blockById(id);
 	}
 	
 	public void delete(Conta conta){

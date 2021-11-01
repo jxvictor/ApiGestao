@@ -19,7 +19,7 @@ public interface ContaRepository extends JpaRepository<Conta, Long>{
 	@Transactional
 	@Query
 	("UPDATE Conta c SET c.flagAtivo = false WHERE c.id = ?2")
-	long blockById(long id, boolean flagAtivo);
+	long blockById(long id);
 	
 	@Modifying
 	@Transactional
