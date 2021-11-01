@@ -17,6 +17,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -34,16 +35,20 @@ public class Pessoa implements Serializable{
 	
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
 	@Column()
+	@ApiModelProperty(value = "Identificador único para a Pessoa")
 	private long id;
 	
 	@Column(nullable = false, length = 100)
+	@ApiModelProperty(value = "Digite o nome da pessoa")
 	private String nome;
 	
 	@Column(unique = true, nullable = false)
+	@ApiModelProperty(value = "Digite o cpf da pessoa")
 	private String cpf;
 	
 	@Column(nullable = false)
 	@JsonFormat(pattern="dd/MM/yyyy")
+	@ApiModelProperty(value = "Digite a data de nascimento da pessoa")
 	private Date dataNascimento;
 	
 	@JsonIgnoreProperties("pessoa")
